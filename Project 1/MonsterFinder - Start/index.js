@@ -4,16 +4,15 @@ const monster = document.querySelector(".monster");
 const monstersChilden = monsters.children;
 const monsterChildren = monster.children;
 
-console.log(monstersChilden);
-console.log(monsterChildren);
-
 {/* <div class="monster">
 <img src="https://robohash.org/6?set=set2" alt="Kazi Ariyan" />
 <p class="name">Kazi Ariyan</p>
 <p class="email">info@easylearningbd.com</p>
 </div> */}
 
-const name = "Kazi Ariyan";
+function showMonster()
+{
+    const name = "Kazi Ariyan";
 const myemail = "info@easylearningbd.com";
 
 const div =  document.createElement("div");
@@ -39,11 +38,38 @@ console.log(img);
 console.log(p1);
 console.log(p2);
 
-div.appendChild(img);
-div.appendChild(p1);
-div.appendChild(p2);
+div.appendChild(img,p1,p2);
 
 monsters.appendChild(div);
-
-console.log("Now display the whole thing");
 console.log(div);
+}
+
+
+
+showMonster();
+const secondChild = pageNotFound();
+monsters.appendChild(secondChild);
+
+
+function pageNotFound()
+{
+
+//     <div class="p-5 not-found" style="display: none">
+//     <span>404</span>
+//     <h1>🧟‍♂️ No Monster Found 🧟‍♂️</h1>
+//   </div>
+
+   const div = document.createElement("div");
+   const span = document.createElement("span");
+   const h1 = document.createElement("h1");
+
+   div.className = "p-5 not-found";
+   span.innerText = "404";
+   h1.innerText = "🧟‍♂️ No Monster Found 🧟‍♂️";
+
+
+   div.append(span,h1);
+
+   return div;
+   
+}
