@@ -4,9 +4,10 @@ const monster = document.querySelector(".monster");
 const monstersChilden = monsters.children;
 const monsterChildren = monster.children;
 
+
 function showMonster()
 {
-    const name = "Kazi Ariyan";
+const name = "Kazi Ariyan";
 const myemail = "info@easylearningbd.com";
 
 const div =  document.createElement("div");
@@ -17,17 +18,15 @@ const p1 = document.createElement("p");
 
 const p2 = document.createElement("p");
 
-img.src = 'https://robohash.org/6?set=set2';
+img.src = 'https://robohash.org/6?set=set8';
 img.alt = 'Kazi Ariyan';
 
 p1.className = "name";
-p1.style.color ="#655a56";
-
 p2.className = "email";
-p2.style.color = "#655a56";
 
-p1.innerText = `${this.name}`;
-p2.innerText = `${this.myemail}`;
+
+p1.innerText = `Kazi Ariyan`;
+p2.innerText = `info@easylearningbd.com`;
 
 
 
@@ -35,15 +34,17 @@ console.log(img);
 console.log(p1);
 console.log(p2);
 
-div.appendChild(img,p1,p2);
+div.appendChild(img);
+div.appendChild(p1);
+div.appendChild(p2);
 
 monsters.appendChild(div);
 console.log(div);
 }
 
 showMonster();
-const secondChild = pageNotFound();
-monsters.appendChild(secondChild);
+// const secondChild = pageNotFound();
+// monsters.appendChild(secondChild);
 
 
 function pageNotFound()
