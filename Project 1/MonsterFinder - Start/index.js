@@ -4,12 +4,6 @@ const monster = document.querySelector(".monster");
 const monstersChilden = monsters.children;
 const monsterChildren = monster.children;
 
-{/* <div class="monster">
-<img src="https://robohash.org/6?set=set2" alt="Kazi Ariyan" />
-<p class="name">Kazi Ariyan</p>
-<p class="email">info@easylearningbd.com</p>
-</div> */}
-
 function showMonster()
 {
     const name = "Kazi Ariyan";
@@ -27,10 +21,13 @@ img.src = 'https://robohash.org/6?set=set2';
 img.alt = 'Kazi Ariyan';
 
 p1.className = "name";
-p2.className = "email";
+p1.style.color ="#655a56";
 
-p1.innerText = `${name}`;
-p2.innerText = `${myemail}`;
+p2.className = "email";
+p2.style.color = "#655a56";
+
+p1.innerText = `${this.name}`;
+p2.innerText = `${this.myemail}`;
 
 
 
@@ -44,8 +41,6 @@ monsters.appendChild(div);
 console.log(div);
 }
 
-
-
 showMonster();
 const secondChild = pageNotFound();
 monsters.appendChild(secondChild);
@@ -53,11 +48,6 @@ monsters.appendChild(secondChild);
 
 function pageNotFound()
 {
-
-//     <div class="p-5 not-found" style="display: none">
-//     <span>404</span>
-//     <h1>🧟‍♂️ No Monster Found 🧟‍♂️</h1>
-//   </div>
 
    const div = document.createElement("div");
    const span = document.createElement("span");
