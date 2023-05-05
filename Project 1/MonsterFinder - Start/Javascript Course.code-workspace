@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "Javascript Course",
+			"path": "../../../Javascript Course"
+		},
+		{
+			"name": "Microblog",
+			"path": "../../Microblog"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
