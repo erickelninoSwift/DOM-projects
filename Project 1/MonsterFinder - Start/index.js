@@ -13,6 +13,9 @@ console.log(monsterChildren);
 <p class="email">info@easylearningbd.com</p>
 </div> */}
 
+const name = "Kazi Ariyan";
+const myemail = "info@easylearningbd.com";
+
 const div =  document.createElement("div");
 div.className = "monster";
 
@@ -27,7 +30,20 @@ img.alt = 'Kazi Ariyan';
 p1.className = "name";
 p2.className = "email";
 
-console.log(div);
+p1.innerText = `${name}`;
+p2.innerText = `${myemail}`;
+
+
+
 console.log(img);
 console.log(p1);
 console.log(p2);
+
+div.appendChild(img);
+div.appendChild(p1);
+div.appendChild(p2);
+
+monsters.appendChild(div);
+
+console.log("Now display the whole thing");
+console.log(div);
