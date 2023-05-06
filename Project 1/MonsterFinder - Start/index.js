@@ -21,7 +21,7 @@ const p1 = document.createElement("p");
 
 const p2 = document.createElement("p");
 
-img.src = 'https://robohash.org/6?set=set8';
+img.src = 'https://robohash.org/2?set=set8';
 img.alt = 'Kazi Ariyan';
 
 p1.className = "name";
@@ -73,6 +73,40 @@ const allmonsters = monsters;
 
 allmonsters.forEach(demon =>{
    
-    console.log(`Monster name: ${demon.name} and Email : ${demon.email}`);
+   const userid = demon.id;
+   const username = demon.name;
+   const useEmail = demon.email;
 
+
+   const div1 =  document.createElement("div");
+   div1.className = "monster";
+
+   const img = document.createElement("img");
+   const p1 = document.createElement("p");
+
+   const p2 = document.createElement("p");
+
+//    'https://robohash.org/6?set=set8';
+
+    img.src = `https://robohash.org/${userid}?set=set8`;
+     img.alt = `${username}`;
+
+     p1.className = "name";
+     p2.className = "email";
+
+
+     p1.innerText = `${username}`;
+     p2.innerText = `${useEmail}`;
+
+
+
+console.log(img);
+console.log(p1);
+console.log(p2);
+
+div1.appendChild(img);
+div1.appendChild(p1);
+div1.appendChild(p2);
+
+monsters1.appendChild(div1);
 });
