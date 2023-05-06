@@ -1,7 +1,6 @@
 // I wish you good luck and happy coding 🥰🤠🥳🥳💯💯
 
-
-
+import monsters from "./monsters.js";
 
 const monsters1 = document.querySelector(".monsters");
 const monster1 = document.querySelector(".monster");
@@ -69,3 +68,11 @@ function pageNotFound()
    return div;
    
 }
+
+const allmonsters = monsters;
+
+allmonsters.forEach(demon =>{
+   
+    console.log(`Monster name: ${demon.name} and Email : ${demon.email}`);
+
+});
