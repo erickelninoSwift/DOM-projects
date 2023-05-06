@@ -45,7 +45,7 @@ monsters1.appendChild(div);
 console.log(div);
 }
 
-showMonster();
+// showMonster();
 const secondChild = pageNotFound();
 monsters1.appendChild(secondChild);
 
@@ -110,3 +110,18 @@ div1.appendChild(p2);
 
 monsters1.appendChild(div1);
 });
+
+
+// Form filter monster
+
+
+document.querySelector("#search-monster").addEventListener('keyup', (e) =>{
+
+    e.preventDefault = true;
+ 
+    console.log(e.target.value);
+
+})
+
+
+
