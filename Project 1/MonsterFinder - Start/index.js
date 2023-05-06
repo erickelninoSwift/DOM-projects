@@ -40,10 +40,10 @@ monsters1.appendChild(div);
 
 }
 
-// showMonster();
-const secondChild = pageNotFound();
-monsters1.appendChild(secondChild);
 
+
+// showMonster();
+pageNotFound();
 
 function pageNotFound()
 {
@@ -59,8 +59,8 @@ function pageNotFound()
    div.style.display = "none";
    div.appendChild(span);
    div.appendChild(h1);
+   monsters1.appendChild(div);
 
-   return div;
    
 }
 
@@ -112,6 +112,8 @@ document.querySelector("#search-monster").addEventListener('keyup', (e) =>{
    
     const allmonsters = document.querySelectorAll(".monster");
 
+    let notfoundDisplay = "true";
+
     for(let onemonster of allmonsters)
     {
         const monsterName = onemonster.children[1].innerText.toLowerCase();
@@ -121,11 +123,24 @@ document.querySelector("#search-monster").addEventListener('keyup', (e) =>{
         if(monsterName.includes(keyWord) || monsterEmail.includes(keyWord))
         {
             onemonster.style.display = "block";
+            notfoundDisplay = false;
         }else
         {
+
             onemonster.style.display = "none";
         }
+
     }
+
+
+    if(notfoundDisplay)
+    {
+        document.querySelector(".not-found").style.display = "block";
+    }else
+    {
+        document.querySelector(".not-found").style.display = "none";
+    }
+
 })
 
 
