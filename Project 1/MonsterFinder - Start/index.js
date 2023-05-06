@@ -1,8 +1,12 @@
 // I wish you good luck and happy coding 🥰🤠🥳🥳💯💯
-const monsters = document.querySelector(".monsters");
-const monster = document.querySelector(".monster");
-const monstersChilden = monsters.children;
-const monsterChildren = monster.children;
+
+
+
+
+const monsters1 = document.querySelector(".monsters");
+const monster1 = document.querySelector(".monster");
+const monstersChilden = monsters1.children;
+const monsterChildren = monster1.children;
 
 
 function showMonster()
@@ -38,13 +42,13 @@ div.appendChild(img);
 div.appendChild(p1);
 div.appendChild(p2);
 
-monsters.appendChild(div);
+monsters1.appendChild(div);
 console.log(div);
 }
 
 showMonster();
-// const secondChild = pageNotFound();
-// monsters.appendChild(secondChild);
+const secondChild = pageNotFound();
+monsters1.appendChild(secondChild);
 
 
 function pageNotFound()
@@ -59,7 +63,8 @@ function pageNotFound()
    h1.innerText = "🧟‍♂️ No Monster Found 🧟‍♂️";
 
 
-   div.append(span,h1);
+   div.appendChild(span);
+   div.appendChild(h1);
 
    return div;
    
