@@ -118,7 +118,7 @@ document.querySelector("#search-monster").addEventListener('keyup', (e) =>{
         const monsterEmail = onemonster.children[2].innerText.toLowerCase();
 
         
-        if(monsterName.includes(keyWord))
+        if(monsterName.includes(keyWord) || monsterEmail.includes(keyWord))
         {
             onemonster.style.display = "block";
         }else
