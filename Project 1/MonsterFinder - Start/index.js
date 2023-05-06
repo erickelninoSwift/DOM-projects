@@ -32,17 +32,12 @@ p1.innerText = `Kazi Ariyan`;
 p2.innerText = `info@easylearningbd.com`;
 
 
-
-console.log(img);
-console.log(p1);
-console.log(p2);
-
 div.appendChild(img);
 div.appendChild(p1);
 div.appendChild(p2);
 
 monsters1.appendChild(div);
-console.log(div);
+
 }
 
 // showMonster();
@@ -61,7 +56,7 @@ function pageNotFound()
    span.innerText = "404";
    h1.innerText = "🧟‍♂️ No Monster Found 🧟‍♂️";
 
-
+   div.style.display = "none";
    div.appendChild(span);
    div.appendChild(h1);
 
@@ -99,11 +94,6 @@ allmonsters.forEach(demon =>{
      p2.innerText = `${useEmail}`;
 
 
-
-console.log(img);
-console.log(p1);
-console.log(p2);
-
 div1.appendChild(img);
 div1.appendChild(p1);
 div1.appendChild(p2);
@@ -118,9 +108,21 @@ monsters1.appendChild(div1);
 document.querySelector("#search-monster").addEventListener('keyup', (e) =>{
 
     e.preventDefault = true;
- 
-    console.log(e.target.value);
+    const keyWord = e.target.value;
+   
+    const allmonsters = document.querySelectorAll(".monster");
 
+    for(let onemonster of allmonsters)
+    {
+        const monsterName = onemonster.children[1].innerText;
+        const monsterEmail = onemonster.children[2].innerText
+
+        if(monsterName.includes(keyWord) || monsterEmail.includes(keyWord))
+        {
+            console.log(monsterName);
+            console.log(monsterEmail);
+        }
+    }
 })
 
 
