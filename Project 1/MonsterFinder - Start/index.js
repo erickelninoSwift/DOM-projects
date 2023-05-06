@@ -108,19 +108,22 @@ monsters1.appendChild(div1);
 document.querySelector("#search-monster").addEventListener('keyup', (e) =>{
 
     e.preventDefault = true;
-    const keyWord = e.target.value;
+    const keyWord = e.target.value.toLowerCase();
    
     const allmonsters = document.querySelectorAll(".monster");
 
     for(let onemonster of allmonsters)
     {
-        const monsterName = onemonster.children[1].innerText;
-        const monsterEmail = onemonster.children[2].innerText
+        const monsterName = onemonster.children[1].innerText.toLowerCase();
+        const monsterEmail = onemonster.children[2].innerText.toLowerCase();
 
-        if(monsterName.includes(keyWord) || monsterEmail.includes(keyWord))
+        
+        if(monsterName.includes(keyWord))
         {
-            console.log(monsterName);
-            console.log(monsterEmail);
+            onemonster.style.display = "block";
+        }else
+        {
+            onemonster.style.display = "none";
         }
     }
 })
