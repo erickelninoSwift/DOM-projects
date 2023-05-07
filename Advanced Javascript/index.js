@@ -43,12 +43,43 @@ const datareceived = moveCommand("backward");
 console.log(datareceived);
 
 
-const hello = () =>{
+let hello = () =>{
 
     const greet = "jackpot";
 
-    const final = () =>{
+    function final(){
         alert(greet);
     }
 
+    return final;
 }
+
+const newHight = hello();
+
+newHight();
+
+
+const multiply = (a,b) => a * b;
+
+const curreiedMultiply = (a)  => (b) =>{
+    return a * b;
+}
+
+console.log(curreiedMultiply(3)(4));
+
+const newone = (a,b) => (c) => a * b *c;
+
+
+// compose
+
+const number2 = (x,y) =>(a) =>x(y(a));
+
+
+const number = (value) =>{
+    return value + 1
+}
+
+
+const composed = number2(number,number)(10);
+
+console.log(composed);
