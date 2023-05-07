@@ -41,3 +41,14 @@ function moveCommand(direction)
 const datareceived = moveCommand("backward");
 
 console.log(datareceived);
+
+
+const hello = () =>{
+
+    const greet = "jackpot";
+
+    const final = () =>{
+        alert(greet);
+    }
+
+}
