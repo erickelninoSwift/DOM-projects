@@ -83,3 +83,6 @@ const number = (value) =>{
 const composed = number2(number,number)(10);
 
 console.log(composed);
+
+
+// ?Array advanced
