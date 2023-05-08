@@ -48,7 +48,7 @@ let hello = () =>{
     const greet = "jackpot";
 
     function final(){
-        alert(greet);
+        
     }
 
     return final;
@@ -86,3 +86,14 @@ console.log(composed);
 
 
 // ?Array advanced
+
+const numbersArray = [10,20,30,40,50,60];
+
+
+const newArra = numbersArray.map((num) =>{
+
+    return num * 2;
+});
+
+console.log(numbersArray);
+console.log(newArra);
