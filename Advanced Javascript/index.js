@@ -97,3 +97,12 @@ const newArra = numbersArray.map((num) =>{
 
 console.log(numbersArray);
 console.log(newArra);
+
+//  Object advanced 
+
+
+var a  = 5;
+var b = a;
+
+console.log(a);
+console.log(b);
