@@ -31,21 +31,10 @@ document.querySelector("#ewallet-form").addEventListener('submit', e =>{
 //    const sgnClass = type === "-" ? "expense-amount" : "income-amount";
    if(description.trim().length > 0 && values.length > 0)
    {
-    const now = new Date();
-
-    const nowDate = now.toLocaleTimeString('en-us',{
-        month:'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    });
-
-    const newDataformat = nowDate.split(",")[0].split(" ");
    
-    const elninodata = `${newDataformat[1]} ${newDataformat[0]}, ${nowDate.split(',')[1]}`;
-    // console.log(nowDate);
+
   
-    const addedTask = addItems(type,description,values,elninodata);
+    const addedTask = addItems(type,description,values,formatDate());
   
     listTodolist.insertAdjacentHTML('afterbegin', addedTask);
     
@@ -66,6 +55,24 @@ const restAllfields = () =>{
 
 }
 
+
+function formatDate()
+{
+    const now = new Date();
+
+    const nowDate = now.toLocaleTimeString('en-us',{
+        month:'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
+    const newDataformat = nowDate.split(",")[0].split(" ");
+   
+    return `${newDataformat[1]} ${newDataformat[0]}, ${nowDate.split(',')[1]}`;
+   
+}
+
 function addItems(mytype,mydescription,Myvalues,myTime)
 {
     const newHtml = `<div class="item">
@@ -81,6 +88,7 @@ function addItems(mytype,mydescription,Myvalues,myTime)
            <p>${mytype}$${Myvalues}</p>
            </div>
     </div>
+    
 `;
 
 return newHtml;
