@@ -10,9 +10,9 @@ document.querySelector("#ewallet-form").addEventListener('submit', e =>{
    const description = document.querySelector(".add__description").value;
    const values = document.querySelector(".add__value").value;
 
-   console.log(type);
-   console.log(description);
-   console.log(values);
+//    console.log(type);
+//    console.log(description);
+//    console.log(values);
 
 
    const listTodolist = document.querySelector(".collection");
@@ -25,12 +25,19 @@ document.querySelector("#ewallet-form").addEventListener('submit', e =>{
 
 
 //    const sgnClass = type === "-" ? "expense-amount" : "income-amount";
-   
-   const addedTask = addItems(type,description,values);
+   if(description.trim().length > 0 && values.length > 0)
+   {
+    const addedTask = addItems(type,description,values);
 
-   listTodolist.insertAdjacentHTML('afterbegin', addedTask);
-
-   restAllfields();
+    listTodolist.insertAdjacentHTML('afterbegin', addedTask);
+ 
+    restAllfields();
+   }else
+   {
+    restAllfields();
+     alert("Please make sure you have entered the description");
+     
+   }
 })
 
 const restAllfields = () =>{
