@@ -26,10 +26,9 @@ document.querySelector("#ewallet-form").addEventListener('submit', e =>{
 
 //    const sgnClass = type === "-" ? "expense-amount" : "income-amount";
    
- 
-   addItems(type,description,values);
+   const addedTask = addItems(type,description,values);
 
-   listTodolist.insertAdjacentHTML('afterbegin',newHtml);
+   listTodolist.insertAdjacentHTML('afterbegin', addedTask);
 
    restAllfields();
 })
@@ -42,20 +41,22 @@ const restAllfields = () =>{
 
 }
 
-function addItems(type,description,values)
+function addItems(mytype,mydescription,Myvalues)
 {
     const newHtml = `<div class="item">
     <div class="item-description-time">
        <div class="item-description">
-           <p>${description}</p>
+           <p>${mydescription}</p>
        </div>
        <div class="item-time">
             <p>25 Feb, 06:45 PM</p>
        </div>
        </div>
-   <div class="item-amount ${type === "-" ? "expense-amount" : "income-amount"}">
-           <p>${type}$${values}</p>
+   <div class="item-amount ${mytype === "-" ? "expense-amount" : "income-amount"}">
+           <p>${mytype}$${Myvalues}</p>
            </div>
     </div>
 `;
+
+return newHtml;
 }
