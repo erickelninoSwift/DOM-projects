@@ -40,9 +40,12 @@ document.querySelector("#ewallet-form").addEventListener('submit', e =>{
         minute: '2-digit'
     });
 
+    const newDataformat = nowDate.split(",")[0].split(" ");
+   
+    const elninodata = `${newDataformat[1]} ${newDataformat[0]}, ${nowDate.split(',')[1]}`;
     // console.log(nowDate);
   
-    const addedTask = addItems(type,description,values,nowDate);
+    const addedTask = addItems(type,description,values,elninodata);
   
     listTodolist.insertAdjacentHTML('afterbegin', addedTask);
     
