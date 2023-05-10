@@ -9,10 +9,13 @@ document.querySelector("#ewallet-form").addEventListener('submit', e =>{
    const type = document.querySelector(".add__type").value;
    const description = document.querySelector(".add__description").value;
    const values = document.querySelector(".add__value").value;
+   const currentTime = document.querySelector(".item-time").children[0];
 
 //    console.log(type);
 //    console.log(description);
 //    console.log(values);
+
+
 
 
    const listTodolist = document.querySelector(".collection");
@@ -20,17 +23,29 @@ document.querySelector("#ewallet-form").addEventListener('submit', e =>{
    const leftdata = document.createElement("div").value;
    const rightdata = document.createElement("div");
    const myitems = document.createElement("div");
+  
 
    myitems.className = "item";
 
-
+   
 //    const sgnClass = type === "-" ? "expense-amount" : "income-amount";
    if(description.trim().length > 0 && values.length > 0)
    {
-    const addedTask = addItems(type,description,values);
+    const now = new Date();
 
+    const nowDate = now.toLocaleTimeString('en-us',{
+        month:'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
+    // console.log(nowDate);
+  
+    const addedTask = addItems(type,description,values,nowDate);
+  
     listTodolist.insertAdjacentHTML('afterbegin', addedTask);
- 
+    
     restAllfields();
    }else
    {
@@ -48,7 +63,7 @@ const restAllfields = () =>{
 
 }
 
-function addItems(mytype,mydescription,Myvalues)
+function addItems(mytype,mydescription,Myvalues,myTime)
 {
     const newHtml = `<div class="item">
     <div class="item-description-time">
@@ -56,7 +71,7 @@ function addItems(mytype,mydescription,Myvalues)
            <p>${mydescription}</p>
        </div>
        <div class="item-time">
-            <p>25 Feb, 06:45 PM</p>
+            <p>${myTime}</p>
        </div>
        </div>
    <div class="item-amount ${mytype === "-" ? "expense-amount" : "income-amount"}">
