@@ -189,8 +189,7 @@ const showTotalIncome = () =>{
     document.querySelector(".income__amount p").innerHTML = `$${Income}`;
      }
 
-   console.log(`income: ${Income}`);
-
+     return Income;
 }
 
 const showTotalexpenses = () =>{
@@ -214,12 +213,26 @@ const showTotalexpenses = () =>{
     document.querySelector(".expense__amount p").innerHTML = `$${expenses}`
      }
 
-   console.log(`expenses: ${expenses}`);
+     return expenses;
 
 }
 
 const calculateBalance = () =>{
-    console.log("Update ongoing !!!")
+   
+    let localItems = getItesmFromLS();
+    if(localItems){
+
+       
+       let income = showTotalIncome();
+       let expense = showTotalexpenses();
+       let total = income - expense;
+
+       document.querySelector(".balance__amount p").innerHTML = `${total}`;
+       
+    }
+    
+
+
 }
 
 
@@ -231,9 +244,7 @@ function update()
     calculateBalance()
 
 }
-
-
-
+// localStorage.clear();
 update();
 populateData();
 
