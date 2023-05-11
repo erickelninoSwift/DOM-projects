@@ -11,11 +11,6 @@ document.querySelector("#ewallet-form").addEventListener('submit', e =>{
    const values = document.querySelector(".add__value").value;
    const currentTime = document.querySelector(".item-time").children[0];
 
-//    console.log(type);
-//    console.log(description);
-//    console.log(values);
-
-
 
 
    const listTodolist = document.querySelector(".collection");
@@ -91,5 +86,30 @@ function addItems(mytype,mydescription,Myvalues,myTime)
     
 `;
 
+ addItemsTolocalStorage(mytype,mydescription,Myvalues,myTime);
+
 return newHtml;
+}
+
+
+const addItemsTolocalStorage = (mytype,mydescription,Myvalues,myTime) =>{
+
+    let items = localStorage.getItem("items");
+
+    if(items.length > 0 || items)
+    {
+        items = JSON.parse(items);
+    }else
+    {
+        items = [];
+    }
+
+    items.push({
+        mytype: mytype,
+        mydescription: mydescription,
+        Myvalues: Myvalues,
+        myTime: myTime
+    });
+
+    localStorage.setItem("items",items);
 }
