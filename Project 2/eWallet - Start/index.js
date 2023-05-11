@@ -2,6 +2,8 @@
 
 console.log("E-Wallet $$$");
 
+const listTodolist = document.querySelector(".collection");
+
 document.querySelector("#ewallet-form").addEventListener('submit', e =>{
 
    e.preventDefault();
@@ -13,7 +15,7 @@ document.querySelector("#ewallet-form").addEventListener('submit', e =>{
 
 
 
-   const listTodolist = document.querySelector(".collection");
+//    const listTodolist = document.querySelector(".collection");
 
    const leftdata = document.createElement("div").value;
    const rightdata = document.createElement("div");
@@ -27,8 +29,6 @@ document.querySelector("#ewallet-form").addEventListener('submit', e =>{
    if(description.trim().length > 0 && values.length > 0)
    {
    
-
-  
     const addedTask = addItems(type,description,values,formatDate());
   
     listTodolist.insertAdjacentHTML('afterbegin', addedTask);
@@ -70,6 +70,7 @@ function formatDate()
 
 function addItems(mytype,mydescription,Myvalues,myTime)
 {
+
     const newHtml = `<div class="item">
     <div class="item-description-time">
        <div class="item-description">
@@ -92,11 +93,62 @@ return newHtml;
 }
 
 
+function getItesmFromLS()
+{
+    let getItems = localStorage.getItem("items");
+  
+    if(getItems)
+    {
+        getItems = JSON.parse(getItems);
+
+       return getItems;
+    }
+}
+
+
+function populateData()
+{
+    let localItems = getItesmFromLS();
+
+    if(localItems)
+    {
+
+    console.log(localItems);
+
+    localItems.forEach(index => {
+        
+        const mytype1 = index.mytype;
+        const mydescription1  = index.mydescription;
+        const Myvalues1 = index.Myvalues;
+        const mytime1 = index.myTime;
+
+        const newhtml2 =  `<div class="item">
+        <div class="item-description-time">
+           <div class="item-description">
+               <p>${mydescription1}</p>
+           </div>
+           <div class="item-time">
+                <p>${mytime1}</p>
+           </div>
+           </div>
+       <div class="item-amount ${mytype1 === "-" ? "expense-amount" : "income-amount"}">
+               <p>${mytype1}$${Myvalues1}</p>
+               </div>
+        </div>
+        
+    `
+        listTodolist.insertAdjacentHTML('afterbegin', newhtml2);
+    });
+    }
+
+    
+}
+
 const addItemsTolocalStorage = (mytype,mydescription,Myvalues,myTime) =>{
 
     let items = localStorage.getItem("items");
 
-    if(items.length > 0 || items)
+    if(items)
     {
         items = JSON.parse(items);
     }else
@@ -111,5 +163,7 @@ const addItemsTolocalStorage = (mytype,mydescription,Myvalues,myTime) =>{
         myTime: myTime
     });
 
-    localStorage.setItem("items",items);
+    localStorage.setItem("items",JSON.stringify(items));
 }
+
+populateData();
