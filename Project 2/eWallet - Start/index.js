@@ -34,12 +34,18 @@ document.querySelector("#ewallet-form").addEventListener('submit', e =>{
     listTodolist.insertAdjacentHTML('afterbegin', addedTask);
     
     restAllfields();
+    showTotalIncome();   
+    showTotalexpenses();
+
    }else
    {
     restAllfields();
      alert("Please make sure you have entered the description");
-     
+     showTotalIncome();
+     showTotalexpenses();
    }
+  
+  
 })
 
 const restAllfields = () =>{
@@ -139,9 +145,7 @@ function populateData()
     `
         listTodolist.insertAdjacentHTML('afterbegin', newhtml2);
     });
-    }
-
-    
+    } 
 }
 
 const addItemsTolocalStorage = (mytype,mydescription,Myvalues,myTime) =>{
@@ -166,4 +170,57 @@ const addItemsTolocalStorage = (mytype,mydescription,Myvalues,myTime) =>{
     localStorage.setItem("items",JSON.stringify(items));
 }
 
+
+const showTotalIncome = () =>{
+
+    let Income = 0;
+
+    let localItems = getItesmFromLS();
+     if(localItems)
+     {
+         
+    for(let index of localItems)
+    {
+        if(index.mytype === '+')
+        {
+            let value = parseInt(index.Myvalues)
+            Income = Income + value;
+        }
+    }
+
+    document.querySelector(".income__amount p").innerHTML = `$${Income}`;
+     }
+
+   console.log(`income: ${Income}`);
+
+}
+
+const showTotalexpenses = () =>{
+
+    let expenses = 0;
+
+
+    let localItems = getItesmFromLS();
+     if(localItems)
+     {
+         
+    for(let index of localItems)
+    {
+        if(index.mytype === '-')
+        {
+            let value = parseInt(index.Myvalues)
+            expenses = expenses + value;
+        }
+    }
+
+    document.querySelector(".expense__amount p").innerHTML = `$${expenses}`
+     }
+
+   console.log(`expenses: ${expenses}`);
+
+}
+
+showTotalIncome();
+showTotalexpenses();
 populateData();
+
