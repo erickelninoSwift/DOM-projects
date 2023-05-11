@@ -34,15 +34,13 @@ document.querySelector("#ewallet-form").addEventListener('submit', e =>{
     listTodolist.insertAdjacentHTML('afterbegin', addedTask);
     
     restAllfields();
-    showTotalIncome();   
-    showTotalexpenses();
+    update();
 
    }else
    {
     restAllfields();
      alert("Please make sure you have entered the description");
-     showTotalIncome();
-     showTotalexpenses();
+     update();
    }
   
   
@@ -220,7 +218,22 @@ const showTotalexpenses = () =>{
 
 }
 
-showTotalIncome();
-showTotalexpenses();
+const calculateBalance = () =>{
+    console.log("Update ongoing !!!")
+}
+
+
+function update()
+{
+
+    showTotalIncome();
+    showTotalexpenses();
+    calculateBalance()
+
+}
+
+
+
+update();
 populateData();
 
