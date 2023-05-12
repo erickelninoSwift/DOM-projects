@@ -429,3 +429,30 @@ header .ewalletLogo h1 {
        transform: rotate(360deg);
   }
 }
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items:flex-end;
+  align-content:center;
+}
+
+.flex-items:nth-child(1) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self:center;
+  order: 0;
+  text-align: center;
+
+}
+
+.btn-sm
+{
+  height: 50px;
+  width: 200px;
+
+}

@@ -228,12 +228,28 @@ const calculateBalance = () =>{
        let total = income - expense;
 
        document.querySelector(".balance__amount p").innerHTML = `${total}`;
+
+       if (total < 0)
+       {
+            document.querySelector("header").className = "red";
+       }else
+       {
+            document.querySelector("header").className = "green";
+       }
        
     }
     
 
 
 }
+
+
+document.querySelector(".btn-sm").addEventListener('click', (e) =>{
+
+    localStorage.clear();
+    update();
+    window.location.reload(true);
+})
 
 
 function update()
