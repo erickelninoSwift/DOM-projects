@@ -114,3 +114,43 @@ console.log("Coercion");
 const num = 34;
 
 console.log(num**2);
+
+const elnino = {
+    name:'eriik',
+    surname:'tshimbombo'
+};
+
+
+Object.keys(elnino).forEach(index =>{
+    console.log(index);
+});
+
+Object.values(elnino).forEach(index =>{
+    console.log(index);
+});
+
+Object.entries(elnino).forEach(index =>{
+    console.log(index[1]);
+});
+
+const array = [1,2,3,4,5];
+
+console.log(array.flat());
+
+const useremail = "      erickelmino@yahoo.com";
+
+console.log(useremail.trimStart()); 
+
+
+const basket = ["orange","banana"];
+
+for(index of basket)
+{
+    console.log(`Hello ${index}`);
+}
+
+for(let index of basket)
+{
+    console.log(index)
+}
+
