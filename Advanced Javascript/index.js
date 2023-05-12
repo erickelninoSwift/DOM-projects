@@ -106,3 +106,11 @@ var b = a;
 
 console.log(a);
 console.log(b);
+
+
+
+console.log("Coercion");
+
+const num = 34;
+
+console.log(num**2);
