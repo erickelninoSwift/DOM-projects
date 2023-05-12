@@ -442,7 +442,7 @@ header .ewalletLogo h1 {
 .flex-items:nth-child(1) {
   display: block;
   flex-grow: 0;
-  flex-shrink: 1;
+  /* flex-shrink: 1; */
   flex-basis: auto;
   align-self:center;
   order: 0;
@@ -454,5 +454,5 @@ header .ewalletLogo h1 {
 {
   height: 50px;
   width: 200px;
-
+  font-size: 20px;
 }

@@ -85,7 +85,7 @@ function addItems(mytype,mydescription,Myvalues,myTime)
        </div>
        </div>
    <div class="item-amount ${mytype === "-" ? "expense-amount" : "income-amount"}">
-           <p>${mytype}$${Myvalues}</p>
+           <p>${mytype}$${Amountep(Myvalues)}</p>
            </div>
     </div>
     
@@ -136,7 +136,7 @@ function populateData()
            </div>
            </div>
        <div class="item-amount ${mytype1 === "-" ? "expense-amount" : "income-amount"}">
-               <p>${mytype1}$${Myvalues1}</p>
+               <p>${mytype1}$${Amountep(Myvalues1)}</p>
                </div>
         </div>
         
@@ -186,7 +186,7 @@ const showTotalIncome = () =>{
         }
     }
 
-    document.querySelector(".income__amount p").innerHTML = `$${Income}`;
+    document.querySelector(".income__amount p").innerHTML = `$${Amountep(Income)}`;
      }
 
      return Income;
@@ -210,7 +210,7 @@ const showTotalexpenses = () =>{
         }
     }
 
-    document.querySelector(".expense__amount p").innerHTML = `$${expenses}`
+    document.querySelector(".expense__amount p").innerHTML = `$${Amountep(expenses)}`
      }
 
      return expenses;
@@ -227,15 +227,9 @@ const calculateBalance = () =>{
        let expense = showTotalexpenses();
        let total = income - expense;
 
-       document.querySelector(".balance__amount p").innerHTML = `${total}`;
+       document.querySelector(".balance__amount p").innerHTML = `${Amountep(total)}`;
 
-       if (total < 0)
-       {
-            document.querySelector("header").className = "red";
-       }else
-       {
-            document.querySelector("header").className = "green";
-       }
+       document.querySelector("header").className = (total > 0) ? 'green' : 'red';
        
     }
     
@@ -246,10 +240,17 @@ const calculateBalance = () =>{
 
 document.querySelector(".btn-sm").addEventListener('click', (e) =>{
 
+    e.preventDefault();
     localStorage.clear();
     update();
     window.location.reload(true);
 })
+
+function Amountep(amount)
+{
+
+    return amount.toLocaleString();
+}
 
 
 function update()
