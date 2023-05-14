@@ -35,11 +35,21 @@ document.querySelector("#search").addEventListener('submit', async (e) =>{
     const user = profile.name;
     const login = profile.login;
     const biouser = profile.bio;
+    const reposURl = profile.repos_url;
 
 
+
+    console.log(profile);
     const profiledocument = document.querySelector(".profile");
+  
+    console.log(`Repository url: ${reposURl}`);
+    const repositoryData = await getRepository(reposURl);
 
-   
+    for(index of repositoryData)
+    {
+        const repoName = index.name;
+        console.log(index)
+    }
 
 
     const datahtml = `
@@ -80,5 +90,15 @@ document.querySelector("#search").addEventListener('submit', async (e) =>{
     console.log(profile);
 
 })
+
+async function getRepository(repoUrl)
+{
+    const fetchrepo = await fetch(`${repoUrl}`);
+
+    const repoJSOn = await fetchrepo.json();
+
+    return repoJSOn;
+
+}
 
   
