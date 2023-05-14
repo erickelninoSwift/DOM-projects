@@ -27,6 +27,15 @@ document.querySelector("#search").addEventListener('submit', async (e) =>{
 
     const username = document.querySelector("#findByUsername").value;
     const profile = await fetchData(username)
+
+
+    console.log("=================");
+    if(profile.login)
+    {
+
+        document.querySelector(".notFound").style.display = "none";
+        document.querySelector(".user-details").style.display = "flex";
+
     const follower = profile.followers;
     const following = profile.following;
     const profileImageUrl = profile.avatar_url;
@@ -61,7 +70,7 @@ document.querySelector("#search").addEventListener('submit', async (e) =>{
           <a href="#">${repoName}</a>
         </div>
         <p>
-          <span class="circle"></span> JavaScript
+          <span class="circle"></span> ${index.language}
           <ion-icon name="star-outline"></ion-icon> ${index.stargazers_count}
           <ion-icon name="git-branch-outline"></ion-icon> ${index.forks_count}
         </p>
@@ -108,6 +117,15 @@ document.querySelector("#search").addEventListener('submit', async (e) =>{
 
 
     console.log(profile);
+       
+    }else
+    {
+        document.querySelector(".notFound").style.display = "block";
+        document.querySelector(".user-details").style.display = "none";
+    }
+    console.log("=================");
+
+
 
 })
 
