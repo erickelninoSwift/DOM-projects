@@ -154,3 +154,15 @@ for(let index of basket)
     console.log(index)
 }
 
+console.log(Number.MAX_SAFE_INTEGER);
+
+const erickelnino = {
+    pichachu: {
+        name:'pokemon',
+      
+    }
+};
+
+const {pichachu = elnino} = erickelnino;
+
+console.log(elnino);
