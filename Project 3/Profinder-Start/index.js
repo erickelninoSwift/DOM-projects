@@ -45,10 +45,30 @@ document.querySelector("#search").addEventListener('submit', async (e) =>{
     console.log(`Repository url: ${reposURl}`);
     const repositoryData = await getRepository(reposURl);
 
-    for(index of repositoryData)
+    let repositoryfile = document.querySelector(".repos")
+
+    console.log(repositoryfile);
+
+    for(let index of repositoryData)
     {
         const repoName = index.name;
-        console.log(index)
+        console.log(index);
+
+        let repoHtml = `
+
+        <div class="repo">
+        <div class="repo_name">
+          <a href="#">${repoName}</a>
+        </div>
+        <p>
+          <span class="circle"></span> JavaScript
+          <ion-icon name="star-outline"></ion-icon> ${index.stargazers_count}
+          <ion-icon name="git-branch-outline"></ion-icon> ${index.forks_count}
+        </p>
+      </div>
+        
+        `;
+        repositoryfile.insertAdjacentHTML('afterbegin',repoHtml);
     }
 
 
