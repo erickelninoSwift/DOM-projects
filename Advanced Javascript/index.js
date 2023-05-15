@@ -163,6 +163,3 @@ const erickelnino = {
     }
 };
 
-const {pichachu = elnino} = erickelnino;
-
-console.log(elnino);

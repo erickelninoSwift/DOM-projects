@@ -30,12 +30,11 @@ document.querySelector("#search").addEventListener('submit', async (e) =>{
 
 
     console.log("=================");
-    if(profile.login)
+    if(profile.name)
     {
 
-        document.querySelector(".notFound").style.display = "none";
-        document.querySelector(".user-details").style.display = "flex";
-
+        duiplayUserOnly();
+     
     const follower = profile.followers;
     const following = profile.following;
     const profileImageUrl = profile.avatar_url;
@@ -120,8 +119,7 @@ document.querySelector("#search").addEventListener('submit', async (e) =>{
        
     }else
     {
-        document.querySelector(".notFound").style.display = "block";
-        document.querySelector(".user-details").style.display = "none";
+        displayUsernotFound();
     }
     console.log("=================");
 
@@ -139,4 +137,27 @@ async function getRepository(repoUrl)
 
 }
 
+
+
+
+function duiplayUserOnly()
+{
+
+    document.querySelector(".notFound").style.display = "none";
+    document.querySelector(".user-details").style.display = "flex";
+
+}
   
+
+function displayUsernotFound()
+{
+    document.querySelector(".notFound").style.display = "block";
+        document.querySelector(".user-details").style.display = "none";
+
+}
+
+
+function moreName()
+{
+  console.log("hello world");
+}
