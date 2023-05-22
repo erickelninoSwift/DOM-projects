@@ -1,4 +1,9 @@
 // I wish you good luck and happy coding 🥰🤠🥳🥳💯💯
+import myLS from "./myLS.js";
+import Task from "./MyTask.js";
+import MyUI from "./MyUI.js";
+
+
 
 console.log("OOP project DOM");
 
@@ -10,6 +15,11 @@ let taskList = document.querySelector(".task-list");
 addTaskbutton.addEventListener('click',(e) =>{
     e.preventDefault();
 
+
+    const localeStore = new myLS();
+    const userTask = new Task();
+    const UserIterface = new MyUI();
+    
 
     let customHtml = `
     
@@ -25,7 +35,6 @@ addTaskbutton.addEventListener('click',(e) =>{
             </div>
     </div>
     `
-
    taskList.insertAdjacentHTML('afterbegin',customHtml);
 
 

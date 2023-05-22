@@ -1,6 +1,6 @@
-function ui()
+function MyUI()
 {
     console.log('this is my UI function');
 }
 
-export default ui;
+export default MyUI;
