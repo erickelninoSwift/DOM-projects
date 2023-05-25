@@ -1,13 +1,18 @@
 
 
-function MyUI(title,taskList)
+function MyUI()
 {
-    let customHtml = `
+
+
+    MyUI.prototype.myUiAddtoi = function(usertask,taskList)
+    {
+
+      let customHtml = `
     
-    <div class="task" data-createdat="12/12/2022, 6:59:55 PM">
+    <div class="task" data-createdat="${usertask.id}">
             <div class="task__details">
               <input type="checkbox" class="task-check" />
-              <label class="task-title">${title}</label>
+              <label class="task-title">${usertask.title}</label>
             </div>
 
             <div class="task__op">
@@ -16,7 +21,26 @@ function MyUI(title,taskList)
             </div>
     </div>
     `
+     
     taskList.insertAdjacentHTML('afterbegin',customHtml);
+
+    }
+
+    
+
+    MyUI.prototype.resetform = function()
+    {
+      document.querySelector("#newtaskID").value = "";
+      document.querySelector("#newtaskID").style.placeHolder = "Add new task here ...";
+    }
+
+    MyUI.prototype.DeletePost = function(element)
+    {
+     document.querySelector(".task-List")
+    }
+   
 }
+
+
 
 export default MyUI;
