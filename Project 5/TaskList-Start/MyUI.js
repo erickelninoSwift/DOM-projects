@@ -36,7 +36,8 @@ function MyUI()
 
     MyUI.prototype.DeletePost = function(element)
     {
-     document.querySelector(".task-List")
+       const dataTodelele = element.target.parentElement.parentElement;
+       dataTodelele.remove();
     }
    
 }
