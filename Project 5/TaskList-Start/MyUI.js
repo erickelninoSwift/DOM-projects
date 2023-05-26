@@ -1,5 +1,4 @@
 
-
 function MyUI()
 {
 
@@ -38,6 +37,11 @@ function MyUI()
     {
        const dataTodelele = element.target.parentElement.parentElement;
        dataTodelele.remove();
+    }
+
+    MyUI.prototype.checkUncheck = function(yolo)
+    {
+      console.log(yolo.target.parentElement.parentElement);
     }
    
 }
