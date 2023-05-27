@@ -33,9 +33,13 @@ document.querySelector(".task-list").addEventListener('click', (e) =>{
    if(e.target.className.includes('task__op_delete'))
    {
       userInterface.DeletePost(e);
-      
-   }else if(e.target.className.includes('task-check'))
+
+   }
+   
+   if(e.target.className.includes('task-check'))
    {
+       
         userInterface.checkUncheck(e);
+       
    }
 })

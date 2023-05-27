@@ -41,7 +41,17 @@ function MyUI()
 
     MyUI.prototype.checkUncheck = function(yolo)
     {
-      console.log(yolo.target.parentElement.parentElement);
+      const complete = yolo.target.parentElement.parentElement;
+      const taskCompleted = complete.className;
+
+      let checked1= !yolo.target.checked;
+
+      // taskCompleted.includes("completed") ? complete.classList.remove("completed") : complete.classList.add("completed");
+
+      console.log(complete.classList.toggle("completed"));
+      complete.classList.toggle("completed") ? yolo.target.checked : 
+      !yolo.target.checked;
+      
     }
    
 }
