@@ -1,11 +1,16 @@
+import myLS from "./myLS.js";
 
 function MyUI()
 {
 
 
+   
+
     MyUI.prototype.myUiAddtoi = function(usertask,taskList)
     {
 
+
+      const local = new myLS()
       let customHtml = `
     
     <div class="task" data-createdat="${usertask.id}">
@@ -22,6 +27,8 @@ function MyUI()
     `
      
     taskList.insertAdjacentHTML('afterbegin',customHtml);
+
+    local.savedata(usertask);
 
     }
 
@@ -43,14 +50,10 @@ function MyUI()
     {
       const complete = yolo.target.parentElement.parentElement;
       const taskCompleted = complete.className;
+      
 
-      let checked1= !yolo.target.checked;
-
-      // taskCompleted.includes("completed") ? complete.classList.remove("completed") : complete.classList.add("completed");
-
-      console.log(complete.classList.toggle("completed"));
-      complete.classList.toggle("completed") ? yolo.target.checked : 
-      !yolo.target.checked;
+      console.log(complete);
+      complete.classList.toggle("completed");
       
     }
    
