@@ -10,6 +10,15 @@ let taskList = document.querySelector(".task-list");
 
 const userInterface = new MyUI();
 
+const localdata = myLS();
+
+
+ const loaddata = () =>{
+
+    console.log("Hello world");
+ }
+
+
 addTaskbutton.addEventListener('click',(e) =>{
     e.preventDefault();
     if(document.querySelector("#newtaskID").value.trim().length > 0)
@@ -43,3 +52,5 @@ document.querySelector(".task-list").addEventListener('click', (e) =>{
        
    }
 })
+
+loaddata();

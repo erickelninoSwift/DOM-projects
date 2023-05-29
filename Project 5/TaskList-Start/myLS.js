@@ -2,27 +2,29 @@ function myLS()
 {
    myLS.prototype.fetchData = function()
    {
-       let alldata = localStorage.getItem('tasks');
+       let alldata = localStorage.getItem('Task');
 
        if(alldata)
        {
            alldata = JSON.parse(alldata);
-           console.log(`All data fetched : ${alldata}`);
+           
+       }else
+       {
+         alldata = [];
        }
+
+       return alldata;
    }
 
     myLS.prototype.savedata = function(element)
     {
 
-        const id = element.id;
-        const title = element.title;
-        const isCompleted = element.isCompleted;
+        let myelement = this.fetchData();
+        myelement.unshift(element);
 
-        const jsonData = JSON.stringify(element);
+        const jsonData = JSON.stringify(myelement);
 
         localStorage.setItem(`Task`,jsonData);
-
-        console.log("Document saved succesfully");
         console.log(`${element}`);
 
     }

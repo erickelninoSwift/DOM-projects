@@ -9,8 +9,11 @@ function MyUI()
     MyUI.prototype.myUiAddtoi = function(usertask,taskList)
     {
 
-
+      
       const local = new myLS()
+
+      local.fetchData();
+      
       let customHtml = `
     
     <div class="task" data-createdat="${usertask.id}">
