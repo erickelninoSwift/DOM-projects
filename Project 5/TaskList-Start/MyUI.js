@@ -13,7 +13,7 @@ function MyUI()
       const local = new myLS()
 
       local.fetchData();
-      
+
       let customHtml = `
     
     <div class="task" data-createdat="${usertask.id}">
@@ -45,8 +45,14 @@ function MyUI()
 
     MyUI.prototype.DeletePost = function(element)
     {
+      const local = new myLS()
+
        const dataTodelele = element.target.parentElement.parentElement;
+       console.log(dataTodelele.dataset.createdat);
+       const dataID = dataTodelele.dataset.createdat;
        dataTodelele.remove();
+       local.deleteData(dataID);
+       
     }
 
     MyUI.prototype.checkUncheck = function(yolo)

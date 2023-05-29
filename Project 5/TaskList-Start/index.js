@@ -10,7 +10,7 @@ let taskList = document.querySelector(".task-list");
 
 const userInterface = new MyUI();
 
-const localdata = myLS();
+let localdata = new myLS();
 
 
  const loaddata = () =>{
@@ -26,7 +26,6 @@ addTaskbutton.addEventListener('click',(e) =>{
         const localeStore = new myLS();
         const userTask = new Task(task.value);
    
-    
         userInterface.myUiAddtoi(userTask,taskList);
 
         userInterface.resetform(task);
@@ -42,6 +41,7 @@ document.querySelector(".task-list").addEventListener('click', (e) =>{
    if(e.target.className.includes('task__op_delete'))
    {
       userInterface.DeletePost(e);
+      
 
    }
    

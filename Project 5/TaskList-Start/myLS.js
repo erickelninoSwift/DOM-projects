@@ -29,6 +29,19 @@ function myLS()
 
     }
 
+
+    myLS.prototype.deleteData = function(dataID)
+    {
+        let fetchdata = this.fetchData();
+        
+        let index = fetchdata.findIndex(data =>{
+            return data.id === dataID
+        });
+
+        fetchdata.splice(index,1);
+        localStorage.setItem('Task', JSON.stringify(fetchdata));
+    }
+
 }
 
 export default myLS;
