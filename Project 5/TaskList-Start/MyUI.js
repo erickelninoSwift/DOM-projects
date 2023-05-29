@@ -48,7 +48,7 @@ function MyUI()
       const local = new myLS()
 
        const dataTodelele = element.target.parentElement.parentElement;
-       console.log(dataTodelele.dataset.createdat);
+  
        const dataID = dataTodelele.dataset.createdat;
        dataTodelele.remove();
        local.deleteData(dataID);
@@ -57,12 +57,16 @@ function MyUI()
 
     MyUI.prototype.checkUncheck = function(yolo)
     {
+      const local = new myLS();
+
       const complete = yolo.target.parentElement.parentElement;
       const taskCompleted = complete.className;
-      
+      const taskid =  complete.dataset.createdat
 
-      console.log(complete);
+      local.checkComplete(taskid);
+
       complete.classList.toggle("completed");
+
       
     }
    

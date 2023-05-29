@@ -42,6 +42,30 @@ function myLS()
         localStorage.setItem('Task', JSON.stringify(fetchdata));
     }
 
+    myLS.prototype.checkComplete = function(taskId)
+    {
+        let fetchdata = this.fetchData();
+
+        let index = fetchdata.findIndex(data =>{
+            return data.id === taskId;
+        });
+       
+       if(fetchdata[index].isCompleted)
+       {
+
+        fetchdata[index].isCompleted = false;
+         
+       }else
+       {
+
+        fetchdata[index].isCompleted = true;
+        
+       }
+
+       localStorage.setItem('Task', JSON.stringify(fetchdata));
+
+    }
+
 }
 
 export default myLS;

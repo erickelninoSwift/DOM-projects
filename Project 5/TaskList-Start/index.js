@@ -10,14 +10,6 @@ let taskList = document.querySelector(".task-list");
 
 const userInterface = new MyUI();
 
-let localdata = new myLS();
-
-
- const loaddata = () =>{
-
-    console.log("Hello world");
- }
-
 
 addTaskbutton.addEventListener('click',(e) =>{
     e.preventDefault();
@@ -52,5 +44,17 @@ document.querySelector(".task-list").addEventListener('click', (e) =>{
        
    }
 })
+
+const loaddata = () =>{
+
+    let localdata = new myLS();
+    let getAlldatasaved = localdata.fetchData();
+
+    getAlldatasaved.forEach(element => {
+
+       userInterface.myUiAddtoi(element,taskList);
+        
+    });
+ }
 
 loaddata();
