@@ -1,5 +1,6 @@
 import myLS from "./myLS.js";
 
+
 function MyUI()
 {
 
@@ -77,8 +78,48 @@ function MyUI()
       let task = taskToEdit.target.parentElement.parentElement;
       let taskIDtoedit = task.dataset.createdat;
       let fetchData = local.fetchData();
-      console.log(fetchData);
-       console.log(taskIDtoedit);
+
+     if(fetchData)
+     {
+        let index = fetchData.findIndex(data =>{
+        return data.id === taskIDtoedit;});
+        
+        document.querySelector(".newtask__input").children[0].style.display = "none";
+       let updateInput =  document.querySelector(".newtask__input").children[1];
+        updateInput.style.display = "block"
+
+       updateInput.value = `${fetchData[index].title}`;
+
+       document.querySelector(".AddTaskBtn").style.display ="none";
+       const edittaskButton = document.querySelector(".EditTaskBtn")
+       edittaskButton.style.display = "inline";
+       edittaskButton.addEventListener('click', e =>{
+        
+        e.preventDefault();
+          let newTaskTitle = document.querySelector("#updateTaskID").value;
+
+          console.log(newTaskTitle);
+
+          fetchData[index].title = newTaskTitle;
+
+          local.deleteData(fetchData[index]);
+
+          local.savedata(fetchData[index]);
+
+          edittaskButton.style.display = "none"
+          document.querySelector(".AddTaskBtn").style.display = "inline";
+          document.querySelector(".newtask__input").children[0].style.display = "inline";
+          updateInput.style.display = "none";
+          updateInput.value = "";
+          
+
+          location.reload();
+
+       })
+
+      
+     }
+    
     }
    
 }

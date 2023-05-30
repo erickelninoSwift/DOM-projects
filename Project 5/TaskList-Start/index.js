@@ -11,40 +11,6 @@ let taskList = document.querySelector(".task-list");
 const userInterface = new MyUI();
 
 
-addTaskbutton.addEventListener('click',(e) =>{
-    e.preventDefault();
-    if(document.querySelector("#newtaskID").value.trim().length > 0)
-    {
-        const localeStore = new myLS();
-        const userTask = new Task(task.value);
-   
-        userInterface.myUiAddtoi(userTask,taskList);
-
-        userInterface.resetform(task);
-
-    }else
-    {
-        console.log("Please do not leave the field Empty");
-    }
-});
-
-document.querySelector(".task-list").addEventListener('click', (e) =>{
-    e.preventDefault();
-   if(e.target.className.includes('task__op_delete'))
-   {
-      userInterface.DeletePost(e);
-      
-
-   }
-   
-   if(e.target.className.includes('task-check'))
-   {
-       
-        userInterface.checkUncheck(e);
-       
-   }
-})
-
 const loaddata = () =>{
 
     let localdata = new myLS();
@@ -70,11 +36,51 @@ const loaddata = () =>{
     });
  }
 
-loaddata();
+ loaddata();
 
-document.querySelector(".task__op_edit").addEventListener('click',e =>{
-    e.preventDefault()
 
-   userInterface.editTask(e);
 
-});
+    addTaskbutton.addEventListener('click',(e) =>{
+        e.preventDefault();
+        if(document.querySelector("#newtaskID").value.trim().length > 0)
+        {
+            const localeStore = new myLS();
+            const userTask = new Task(task.value);
+       
+            userInterface.myUiAddtoi(userTask,taskList);
+    
+            userInterface.resetform(task);
+    
+        }else
+        {
+            console.log("Please do not leave the field Empty");
+        }
+    });
+
+document.querySelector(".task-list").addEventListener('click', (e) =>{
+    e.preventDefault();
+   if(e.target.className.includes('task__op_delete'))
+   {
+      userInterface.DeletePost(e);
+      
+
+   }
+   
+   if(e.target.className.includes('task-check'))
+   {
+       
+        userInterface.checkUncheck(e);
+       
+   }
+
+   if(e.target.className.includes('task__op_edit'))
+   {
+
+       userInterface.editTask(e);
+
+   }
+
+})
+
+
+
