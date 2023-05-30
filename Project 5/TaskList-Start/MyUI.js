@@ -12,7 +12,7 @@ function MyUI()
       
       const local = new myLS()
 
-      local.fetchData();
+      // local.fetchData();
 
       let customHtml = `
     

@@ -52,8 +52,21 @@ const loaddata = () =>{
 
     getAlldatasaved.forEach(element => {
 
-       userInterface.myUiAddtoi(element,taskList);
-        
+        let customHtml = `
+    
+    <div class="task" data-createdat="${element.id}">
+            <div class="task__details">
+              <input type="checkbox" class="task-check" />
+              <label class="task-title">${element.title}</label>
+            </div>
+
+            <div class="task__op">
+              <ion-icon class="task__op_edit" name="create-outline"></ion-icon>
+              <ion-icon class="task__op_delete" name="trash-outline"></ion-icon>
+            </div>
+    </div>
+    `
+    taskList.insertAdjacentHTML('afterbegin',customHtml);
     });
  }
 
