@@ -69,6 +69,17 @@ function MyUI()
 
       
     }
+
+    MyUI.prototype.editTask = function(taskToEdit)
+    {
+      const local = new myLS();
+
+      let task = taskToEdit.target.parentElement.parentElement;
+      let taskIDtoedit = task.dataset.createdat;
+      let fetchData = local.fetchData();
+      console.log(fetchData);
+       console.log(taskIDtoedit);
+    }
    
 }
 

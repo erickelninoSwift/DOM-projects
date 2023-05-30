@@ -71,3 +71,10 @@ const loaddata = () =>{
  }
 
 loaddata();
+
+document.querySelector(".task__op_edit").addEventListener('click',e =>{
+    e.preventDefault()
+
+   userInterface.editTask(e);
+
+});
