@@ -62,7 +62,7 @@ function MyUI()
       const complete = yolo.target.parentElement.parentElement;
       const taskCompleted = complete.className;
       const taskid =  complete.dataset.createdat
-
+      console.log(complete);
       local.checkComplete(taskid);
 
       complete.classList.toggle("completed");

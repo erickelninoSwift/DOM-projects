@@ -56,7 +56,7 @@ const loaddata = () =>{
     
     <div class="task" data-createdat="${element.id}">
             <div class="task__details">
-              <input type="checkbox" class="task-check" />
+              <input type="checkbox" class="task-check" ${element.isCompleted ? "checked" : ""} />
               <label class="task-title">${element.title}</label>
             </div>
 
